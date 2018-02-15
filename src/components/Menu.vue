@@ -35,10 +35,12 @@ export default {
     @extend %container
 
   ul
-    display: flex
+    display: none
     align-items: center
     margin: 0
     padding: 0
+    +bp(tab)
+      display: flex
     li
       margin-left: 30px
       list-style: none

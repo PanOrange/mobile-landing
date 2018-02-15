@@ -25,6 +25,19 @@
         </div>
       </div>
     </div>
+    <div class="home-landing">
+      <div class="container-fixed">
+        <div class="block">
+          <div class="text-block">
+            <h1>Beautiful Landing Page Template</h1>
+            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+          </div>
+          <div class="img-fluid">
+            <img src="../assets/isometric-view.png" alt="pic">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -53,12 +66,21 @@ export default {
     display: flex
     align-items: flex-start
     justify-content: space-between
-    flex-direction: column-reverse
-    +bp(tab)
-      flex-direction: row
+    flex-direction: column
+    .home-intro &
+      flex-direction: column-reverse
+      +bp(tab)
+        flex-direction: row
+    .home-landing &
+      padding: 70px 0
+      +bp(tab)
+        padding: 100px 0
+
     .column
       width: 100%
       overflow: hidden
+      &:first-child
+        align-self: flex-end
       +bp(tab)
         width: 50%
         padding: 0 10px
@@ -67,25 +89,17 @@ export default {
         padding-top: 40px
         +bp(med)
           padding-top: 9em
-        h1
-          margin: 0 0 26px
-          font-family: $Roboto
-          font-weight: 100
-          font-size: 32px
-          line-height: 1.2
-          color: $white
-          +bp(tab)
-            font-size: 40px
-        p
-          margin: 0 0 16px
-          font-family: $Roboto
-          font-weight: 400
-          font-size: 16px
-          line-height: 1.8
-          color: #d4d6da
-          &.notes
-            margin: 0
-            color: #a1a4ab
+    h1
+      @extend %heading-main
+      margin: 0 0 26px
+    p
+      @extend %text-main
+      .home-landing &
+        +bp(med)
+          width: 320px
+      &.notes
+        margin: 0
+        color: #a1a4ab
     .button-block
       .btn
         @extend %btn
@@ -119,6 +133,17 @@ export default {
           margin-right: 16px
         i
           margin-right: 8px
+    .img-fluid
+      position: relative
+      width: 100%
+      +bp(med)
+        margin-top: -16%
+      +bp(lg)
+        margin-top: -22%
+      img
+        width: calc(100% + 30px)
+        margin: 0 -15px
+
   .home-partners
     background-color: #383e40
 

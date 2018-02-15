@@ -38,6 +38,31 @@
         </div>
       </div>
     </div>
+    <div class="home-learn">
+      <div class="container-fixed">
+        <div class="block">
+          <div class="column-center">
+            <h1>Perfect landing page for any App</h1>
+            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+            <a href="#" class="btn">Learn more<i class="fa fa-chevron-circle-right"></i></a>
+          </div>
+          <div class="img-block">
+            <div class="img-part1">
+              <img class="bg" src="../assets/detailed-screen.png" alt="">
+              <img class="screen" src="../assets/screen1.jpg" alt="">
+            </div>
+            <div class="img-part2">
+              <img class="bg" src="../assets/detailed-screen.png" alt="">
+              <img class="screen" src="../assets/screen2.jpg" alt="">
+            </div>
+            <div class="img-part3">
+              <img class="bg" src="../assets/detailed-screen.png" alt="">
+              <img class="screen" src="../assets/screen3.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -75,6 +100,10 @@ export default {
       padding: 70px 0
       +bp(tab)
         padding: 100px 0
+    .home-learn &
+      display: block
+      padding: 100px 0 0
+      text-align: center
 
     .column
       width: 100%
@@ -144,7 +173,86 @@ export default {
         width: calc(100% + 30px)
         margin: 0 -15px
 
-  .home-partners
+  .home-partners,
+  .home-learn
     background-color: #383e40
+
+  .column-center
+    +bp(tab)
+      max-width: 70%
+      margin: 0 auto
+      padding: 0 30px
+    .btn
+      @extend %btn
+      width: 100%
+      margin: 10px 0 80px
+      padding: 10px 16px
+      font-family: $Roboto
+      font-size: 18px
+      font-weight: 400
+      line-height: 1.2
+      border-radius: 30px
+      border: 2px solid $lightblue
+      color: $lightblue
+      +bp(400)
+        width: auto
+      +bp(med)
+        font-size: 20px
+        padding: 12px 40px
+      &:hover
+        color: $white
+        background-color: $lightblue
+      i
+        margin-left: 8px
+
+  .img-block
+    position: relative
+    overflow: hidden
+    height: 250px
+    +bp(mob)
+      height: 240px
+    +bp(tab)
+      height: 340px
+      max-width: 920px
+      margin: 0 auto
+    +bp(med)
+      height: 460px
+    +bp(lg)
+      height: 530px
+      max-width: 100%
+    >div
+      position: absolute
+      top: 0
+      height: 100%
+      width: 30%
+
+    .bg
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+    .screen
+      position: absolute
+      top: 12.5%
+      left: 6%
+      width: 88%
+      height: 100%
+      +bp(lg)
+        top: 15%
+    .img-part1
+      width: 30%
+      top: 15%
+      left: 15%
+      z-index: 7
+    .img-part2
+      position: absolute
+      left: 50%
+      transform: translate(-50%)
+      z-index: 8
+    .img-part3
+      width: 30%
+      top: 15%
+      right: 15%
+      z-index: 7
 
 </style>

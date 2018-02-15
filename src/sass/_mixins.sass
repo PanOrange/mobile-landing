@@ -1,0 +1,60 @@
+//========================
+//    MEDIA - Mobile First
+//========================
+
+=input-placeholder
+  &.placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+//
+//   Mobile first Breakpoints
+//
+=bp($type)
+  $breakpointConfig: (mob: '461px', tab: '769px', med: '961px', lg: '1201px')
+  @if map-has-key($breakpointConfig, $type)
+    @media (min-width: #{map-get($breakpointConfig, $type)})
+      @content
+  @else
+    @media (min-width: ($type + 1 + 'px'))
+      @content
+
+%container
+  margin: 0 auto
+  padding: 0 15px
+  +bp(mob)
+    padding: 0 20px
+  +bp(lg)
+    max-width: 1100px
+    padding: 0 40px
+
+%container-fixed
+  margin: 0 auto
+  padding: 0 15px
+  +bp(mob)
+    max-width: 540px
+    padding: 0 20px
+  +bp(tab)
+    max-width: 720px
+  +bp(med)
+    max-width: 1100px
+  +bp(lg)
+    padding: 0 40px
+
+%btn
+  display: inline-block
+  font-family: $Roboto
+  font-size: 16px
+  line-height: 1.5
+  text-decoration: none
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  transition: all 0.2s ease

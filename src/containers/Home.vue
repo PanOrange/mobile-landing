@@ -49,15 +49,15 @@
           <div class="img-block">
             <div class="img-part1">
               <img class="bg" src="../assets/detailed-screen.png" alt="">
-              <img class="screen" src="../assets/screen1.jpg" alt="">
+              <img class="screen" src="../assets/screen5.jpg" alt="">
             </div>
             <div class="img-part2">
-              <img class="bg" src="../assets/detailed-screen.png" alt="">
-              <img class="screen" src="../assets/screen2.jpg" alt="">
+              <img class="bg" src="../assets/iphone-black.png" alt="">
+              <img class="screen" src="../assets/screen6.jpg" alt="">
             </div>
             <div class="img-part3">
-              <img class="bg" src="../assets/detailed-screen.png" alt="">
-              <img class="screen" src="../assets/screen3.jpg" alt="">
+              <img class="bg" src="../assets/iPhone-gold.png" alt="">
+              <img class="screen" src="../assets/screen7.jpg" alt="">
             </div>
           </div>
         </div>
@@ -208,11 +208,14 @@ export default {
   .img-block
     position: relative
     overflow: hidden
-    height: 250px
+    height: 160px
+    margin: 0 auto
+    max-width: 250px
     +bp(mob)
+      max-width: 400px
       height: 240px
-    +bp(tab)
-      height: 340px
+    +bp(560)
+      /*height: 340px*/
       max-width: 920px
       margin: 0 auto
     +bp(med)
@@ -233,12 +236,15 @@ export default {
       width: 100%
     .screen
       position: absolute
-      top: 12.5%
+      top: 11%
       left: 6%
       width: 88%
-      height: 100%
-      +bp(lg)
+      +bp(560)
         top: 15%
+      +bp(tab)
+        top: 20.5%
+      +bp(med)
+        top: 14.5%
     .img-part1
       width: 30%
       top: 15%

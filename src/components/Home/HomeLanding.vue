@@ -27,16 +27,10 @@
 </template>
 
 <script>
-import SliderPhone from '../SliderPhone'
-import SliderPartners from '../SliderPartners'
 export default {
-  components: {
-    SliderPhone, SliderPartners
-  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
   @import '../../sass/variables'
   @import '../../sass/mixins'
@@ -47,37 +41,13 @@ export default {
   .container-fixed
     @extend %container-fixed
 
-  .block
-    display: flex
-    align-items: flex-start
-    justify-content: space-between
-    flex-direction: column
-    .home-intro &
-      flex-direction: column-reverse
-      +bp(tab)
-        flex-direction: row
-    .home-landing &
-      padding: 70px 0
-      +bp(tab)
-        padding: 100px 0
-    .home-learn &
-      display: block
-      padding: 100px 0 0
-      text-align: center
+  .home-learn
+    background-color: #383e40
 
-    .column
-      width: 100%
-      overflow: hidden
-      &:first-child
-        align-self: flex-end
-      +bp(tab)
-        width: 50%
-        padding: 0 10px
-      &.column-vertical
-        flex-direction: column
-        padding-top: 40px
-        +bp(med)
-          padding-top: 9em
+  .block
+    display: block
+    padding: 100px 0 0
+    text-align: center
     h1
       @extend %heading-main
       margin: 0 0 26px
@@ -86,57 +56,6 @@ export default {
       .home-landing &
         +bp(med)
           width: 320px
-      &.notes
-        margin: 0
-        color: #a1a4ab
-    .button-block
-      .btn
-        @extend %btn
-        width: 100%
-        margin-bottom: 16px
-        padding: 10px 16px
-        font-family: $Roboto
-        font-size: 18px
-        font-weight: 400
-        line-height: 1.2
-        border-radius: 30px
-        +bp(400)
-          width: auto
-        +bp(med)
-          font-size: 20px
-          padding: 12px 40px
-        &.btn-apple
-          margin-right: 16px
-          border: 2px solid $lightblue
-          color: $lightblue
-          &:hover
-            color: $white
-            background-color: $lightblue
-        &.btn-android
-          border: 2px solid $lightgreen
-          color: $lightgreen
-          &:hover
-            color: $white
-            background-color: $lightgreen
-        &:first-child
-          margin-right: 16px
-        i
-          margin-right: 8px
-    .img-fluid
-      position: relative
-      width: 100%
-      +bp(med)
-        margin-top: -16%
-      +bp(lg)
-        margin-top: -22%
-      img
-        width: calc(100% + 30px)
-        margin: 0 -15px
-
-  .home-partners,
-  .home-learn
-    background-color: #383e40
-
   .column-center
     +bp(tab)
       max-width: 70%
@@ -175,7 +94,6 @@ export default {
       max-width: 400px
       height: 240px
     +bp(560)
-      /*height: 340px*/
       max-width: 920px
       margin: 0 auto
     +bp(med)
@@ -211,7 +129,6 @@ export default {
       left: 15%
       z-index: 7
     .img-part2
-      position: absolute
       left: 50%
       transform: translate(-50%)
       z-index: 8

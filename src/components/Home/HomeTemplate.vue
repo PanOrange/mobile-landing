@@ -1,0 +1,56 @@
+<template>
+  <div class="home-landing">
+    <div class="container-fixed">
+      <div class="block">
+        <div class="text-block">
+          <h1>Beautiful Landing Page Template</h1>
+          <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+        </div>
+        <div class="img-fluid">
+          <img src="../../assets/isometric-view.png" alt="pic">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="sass" scoped>
+  @import '../../sass/variables'
+  @import '../../sass/mixins'
+
+  .container-fixed
+    @extend %container-fixed
+
+  .block
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    flex-direction: column
+    padding: 70px 0
+    +bp(tab)
+      padding: 100px 0
+    h1
+      @extend %heading-main
+      margin: 0 0 26px
+    p
+      @extend %text-main
+      .home-landing &
+        +bp(med)
+          width: 320px
+    .img-fluid
+      position: relative
+      width: 100%
+      +bp(med)
+        margin-top: -16%
+      +bp(lg)
+        margin-top: -22%
+      img
+        width: calc(100% + 30px)
+        margin: 0 -15px
+
+</style>

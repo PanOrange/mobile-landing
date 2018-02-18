@@ -27,17 +27,19 @@
 
 <script>
 import Header from './components/Header'
-import HomeIntro from './components/HomeIntro'
-import HomeTemplate from './components/HomeTemplate'
-import HomeLanding from './components/HomeLanding'
-import Features from './components/Features'
+import HomeIntro from './components/Home/HomeIntro'
+import HomeTemplate from './components/Home/HomeTemplate'
+import HomeLanding from './components/Home/HomeLanding'
+import FeaturesList from './components/Features/FeaturesList'
+import FeaturesFilm from './components/Features/FeaturesFilm'
+import FeaturesLove from './components/Features/FeaturesLove'
 import Pricing from './components/Pricing'
 import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Header, HomeIntro, Features, Pricing, Footer
+    Header, HomeIntro, HomeTemplate, HomeLanding, FeaturesList, FeaturesFilm, FeaturesLove, Pricing, Footer
   }
 }
 </script>

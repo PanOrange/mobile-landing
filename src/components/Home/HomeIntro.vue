@@ -16,24 +16,35 @@
         </div>
       </div>
     </div>
+    <div class="home-partners">
+      <div class="container">
+        <div class="block">
+          <SliderPartners></SliderPartners>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import SliderPhone from './SliderPhone'
+import SliderPhone from '../SliderPhone'
+import SliderPartners from '../SliderPartners'
 export default {
   components: {
-    SliderPhone
+    SliderPhone, SliderPartners
   }
 }
 </script>
 
 <style lang="sass" scoped>
-  @import '../sass/variables'
-  @import '../sass/mixins'
+  @import '../../sass/variables'
+  @import '../../sass/mixins'
 
   .container-fixed
     @extend %container-fixed
+
+  .container
+    @extend %container
 
   .block
     display: flex
@@ -96,4 +107,6 @@ export default {
           margin-right: 16px
         i
           margin-right: 8px
+  .home-partners
+    background-color: #383e40
 </style>

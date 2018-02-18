@@ -12,8 +12,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-  @import '../sass/variables'
-  @import '../sass/mixins'
+  @import '../../sass/variables'
+  @import '../../sass/mixins'
 
   .header
     border-bottom: 1px solid $light

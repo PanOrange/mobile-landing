@@ -1,74 +1,34 @@
 <template>
-  <section class="home-view">
-    <div class="home-intro">
-      <div class="container-fixed">
-        <div class="block">
-          <div class="column">
-            <SliderPhone></SliderPhone>
+  <div class="home-learn">
+    <div class="container-fixed">
+      <div class="block">
+        <div class="column-center">
+          <h1>Perfect landing page for any App</h1>
+          <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+          <a href="#" class="btn">Learn more<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+        <div class="img-block">
+          <div class="img-part1">
+            <img class="bg" src="../../assets/detailed-screen.png" alt="">
+            <img class="screen" src="../../assets/screen5.jpg" alt="">
           </div>
-          <div class="column column-vertical">
-            <h1>Create an App Landing Page. No Coding required</h1>
-            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-            <div class="button-block">
-              <a href="" class="btn btn-apple"><i class="fa fa-apple"></i>App Store</a>
-              <a href="" class="btn btn-android"><i class="fa fa-android"></i>Play Store</a>
-            </div>
-            <p class="notes">Version required ios 10 or later, Android Kitkat or later</p>
+          <div class="img-part2">
+            <img class="bg" src="../../assets/iphone-black.png" alt="">
+            <img class="screen" src="../../assets/screen6.jpg" alt="">
+          </div>
+          <div class="img-part3">
+            <img class="bg" src="../../assets/iPhone-gold.png" alt="">
+            <img class="screen" src="../../assets/screen7.jpg" alt="">
           </div>
         </div>
       </div>
     </div>
-    <div class="home-partners">
-      <div class="container">
-        <div class="block">
-          <SliderPartners></SliderPartners>
-        </div>
-      </div>
-    </div>
-    <div class="home-landing">
-      <div class="container-fixed">
-        <div class="block">
-          <div class="text-block">
-            <h1>Beautiful Landing Page Template</h1>
-            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-          </div>
-          <div class="img-fluid">
-            <img src="../assets/isometric-view.png" alt="pic">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="home-learn">
-      <div class="container-fixed">
-        <div class="block">
-          <div class="column-center">
-            <h1>Perfect landing page for any App</h1>
-            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-            <a href="#" class="btn">Learn more<i class="fa fa-chevron-circle-right"></i></a>
-          </div>
-          <div class="img-block">
-            <div class="img-part1">
-              <img class="bg" src="../assets/detailed-screen.png" alt="">
-              <img class="screen" src="../assets/screen5.jpg" alt="">
-            </div>
-            <div class="img-part2">
-              <img class="bg" src="../assets/iphone-black.png" alt="">
-              <img class="screen" src="../assets/screen6.jpg" alt="">
-            </div>
-            <div class="img-part3">
-              <img class="bg" src="../assets/iPhone-gold.png" alt="">
-              <img class="screen" src="../assets/screen7.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 </template>
 
 <script>
-import SliderPhone from './SliderPhone'
-import SliderPartners from './SliderPartners'
+import SliderPhone from '../SliderPhone'
+import SliderPartners from '../SliderPartners'
 export default {
   components: {
     SliderPhone, SliderPartners
@@ -78,8 +38,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
-  @import '../sass/variables'
-  @import '../sass/mixins'
+  @import '../../sass/variables'
+  @import '../../sass/mixins'
 
   .container
     @extend %container

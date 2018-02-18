@@ -67,8 +67,8 @@
 </template>
 
 <script>
-import SliderPhone from '../components/SliderPhone'
-import SliderPartners from '../components/SliderPartners'
+import SliderPhone from './SliderPhone'
+import SliderPartners from './SliderPartners'
 export default {
   components: {
     SliderPhone, SliderPartners

@@ -2,25 +2,42 @@
   <div id="app">
     <Header />
       <main>
-        <Home />
-        <Features />
+        <HomeIntro />
+        <HomeTemplate />
+        <HomeLanding />
+        <FeaturesList />
+        <FeaturesFilm />
+        <FeaturesLove />
+        <FeaturesModern />
+        <FeaturesStyle />
+        <Reviews />
+        <Gallery />
+        <Stages />
+        <Content />
         <Pricing />
+        <Faq />
+        <Team />
+        <Map />
+        <Contacts />
+        <Store />
       </main>
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from './containers/Header'
-import Home from './containers/Home'
-import Features from './containers/Features'
-import Pricing from './containers/Pricing'
-import Footer from './containers/Footer'
+import Header from './components/Header'
+import HomeIntro from './components/HomeIntro'
+import HomeTemplate from './components/HomeTemplate'
+import HomeLanding from './components/HomeLanding'
+import Features from './components/Features'
+import Pricing from './components/Pricing'
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Header, Home, Features, Pricing, Footer
+    Header, HomeIntro, Features, Pricing, Footer
   }
 }
 </script>

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Menu from '../components/Menu'
+import Menu from './Menu'
 
 export default {
   name: 'Header',

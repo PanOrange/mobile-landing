@@ -66,13 +66,10 @@ export default {
 <style lang="sass" scoped>
   @import '../../sass/variables'
   @import '../../sass/mixins'
-
   .container
     @extend %container
-
   .container-fixed
     @extend %container-fixed
-
   .block
     display: block
     padding: 100px 0 0
@@ -95,7 +92,9 @@ export default {
       display: flex
       flex-wrap: wrap
       margin: 0
-      padding: 0 0 100px
+      padding: 0 0 40px
+      +bp(620)
+        padding: 0 0 100px
       li
         display: flex
         flex-direction: column
@@ -105,6 +104,8 @@ export default {
         padding: 20px 10px
         width: 100%
         border-bottom: 1px solid rgba(#9fa6b1, 0.2)
+        &:nth-child(6)
+          border-bottom: 1px solid transparent
         +bp(400)
           max-width: 380px
         +bp(620)
@@ -112,8 +113,7 @@ export default {
           width: 50%
           &:nth-child(2n+1)
             border-right: 1px solid rgba(#9fa6b1, 0.2)
-          &:nth-child(5),
-          &:nth-child(6)
+          &:nth-child(5)
             border-bottom: 1px solid transparent
         +bp(med)
           width: 33.33%

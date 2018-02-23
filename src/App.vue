@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Header />
+    <div v-if="!isLoading">
+      <Header />
       <main>
         <HomeIntro />
         <HomeTemplate />
@@ -21,7 +22,8 @@
         <Contacts />
         <Store />
       </main>
-    <Footer />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -33,13 +35,51 @@ import HomeLanding from './components/Home/HomeLanding'
 import FeaturesList from './components/Features/FeaturesList'
 import FeaturesFilm from './components/Features/FeaturesFilm'
 import FeaturesLove from './components/Features/FeaturesLove'
+import FeaturesModern from './components/Features/FeaturesModern'
+import FeaturesStyle from './components/Features/FeaturesStyle'
+import Reviews from './components/Reviews'
+import Gallery from './components/Gallery'
+import Stages from './components/Stages'
+import Content from './components/Content'
 import Pricing from './components/Pricing'
+import Faq from './components/Faq'
+import Team from './components/Team'
+import Map from './components/Map'
+import Contacts from './components/Contacts'
+import Store from './components/Store'
 import Footer from './components/Footer'
 
 export default {
   name: 'App',
+  data () {
+    return {
+      isLoading: true
+    }
+  },
+  mounted () {
+    this.isLoading = false
+  },
   components: {
-    Header, HomeIntro, HomeTemplate, HomeLanding, FeaturesList, FeaturesFilm, FeaturesLove, Pricing, Footer
+    Header,
+    HomeIntro,
+    HomeTemplate,
+    HomeLanding,
+    FeaturesList,
+    FeaturesFilm,
+    FeaturesLove,
+    FeaturesModern,
+    FeaturesStyle,
+    Reviews,
+    Gallery,
+    Stages,
+    Content,
+    Pricing,
+    Faq,
+    Team,
+    Map,
+    Contacts,
+    Store,
+    Footer
   }
 }
 </script>

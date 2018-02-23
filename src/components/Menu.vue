@@ -1,14 +1,22 @@
 <template>
   <nav>
-    <ul>
-      <li v-for="(item, index) in menu" :key="index">
-        <a :href="item.link" :class="{active: activeItem === item.title}">{{ item.title }}</a>
-      </li>
-    </ul>
+    <transition
+      v-on:enter="enter"
+      v-bind:css="false"
+      appear
+    >
+      <ul>
+        <li v-for="(item, index) in menu" :key="index">
+          <a :href="item.link" :class="{active: activeItem === item.title}">{{ item.title }}</a>
+        </li>
+      </ul>
+    </transition>
   </nav>
 </template>
 
 <script>
+import { TimelineMax, Power4 } from 'gsap'
+
 export default {
   name: 'Menu',
   data () {
@@ -22,11 +30,21 @@ export default {
         {title: 'Contact', link: '#'}
       ]
     }
+  },
+  methods: {
+    enter (el, done) {
+      const tl = new TimelineMax({
+        onComplete: done
+      })
+
+      tl.set(el, { autoAlpha: 0, top: '-70px', scale: 0.9 })
+      tl.to(el, 1, { autoAlpha: 1, top: '-5px', scale: 1, ease: Power4.easeIn })
+      tl.to(el, 0.5, { top: 0 })
+    }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
   @import '../sass/variables'
   @import '../sass/mixins'
@@ -35,6 +53,7 @@ export default {
     @extend %container
 
   ul
+    position: relative
     display: none
     align-items: center
     margin: 0

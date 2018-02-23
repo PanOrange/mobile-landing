@@ -5,15 +5,20 @@
         <div class="column">
           <SliderPhone></SliderPhone>
         </div>
-        <div class="column column-vertical">
-          <h1>Create an App Landing Page. No Coding required</h1>
-          <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-          <div class="button-block">
-            <a href="" class="btn btn-apple"><i class="fa fa-apple"></i>App Store</a>
-            <a href="" class="btn btn-android"><i class="fa fa-android"></i>Play Store</a>
+        <transition
+          v-on:enter="onEnter"
+          appear
+        >
+          <div class="column column-vertical">
+            <h1>Create an App Landing Page. No Coding required</h1>
+            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+            <div class="button-block">
+              <a href="" class="btn btn-apple"><i class="fa fa-apple"></i>App Store</a>
+              <a href="" class="btn btn-android"><i class="fa fa-android"></i>Play Store</a>
+            </div>
+            <p class="notes">Version required ios 10 or later, Android Kitkat or later</p>
           </div>
-          <p class="notes">Version required ios 10 or later, Android Kitkat or later</p>
-        </div>
+        </transition>
       </div>
     </div>
     <div class="home-partners">
@@ -27,11 +32,27 @@
 </template>
 
 <script>
+import { TimelineMax, Power4 } from 'gsap'
+
 import SliderPhone from '../SliderPhone'
 import SliderPartners from '../SliderPartners'
 export default {
   components: {
     SliderPhone, SliderPartners
+  },
+  methods: {
+    onEnter (el, done) {
+      console.log(el.children)
+      const tl = new TimelineMax({
+        onComplete: done
+      })
+
+      tl.set(el.children, { autoAlpha: 0, top: '40px' })
+      tl.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '0.5')
+      tl.to(el.children[1], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      tl.to(el.children[2], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      tl.to(el.children[3], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+    }
   }
 }
 </script>
@@ -68,13 +89,16 @@ export default {
           padding-top: 9em
     h1
       @extend %heading-main
+      position: relative
       margin: 0 0 26px
     p
       @extend %text-main
+      position: relative
       &.notes
         margin: 0
         color: #a1a4ab
     .button-block
+      position: relative
       .btn
         @extend %btn
         width: 100%

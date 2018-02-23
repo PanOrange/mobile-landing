@@ -2,10 +2,15 @@
   <div class="home-landing">
     <div class="container-fixed">
       <div class="block">
-        <div class="text-block">
-          <h1>Beautiful Landing Page Template</h1>
-          <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-        </div>
+        <transition
+          appear
+          v-on:enter="onEnter"
+        >
+          <div class="text-block">
+            <h1>Beautiful Landing Page Template</h1>
+            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+          </div>
+        </transition>
         <div class="img-fluid">
           <img src="../../assets/isometric-view.png" alt="pic">
         </div>
@@ -15,7 +20,26 @@
 </template>
 
 <script>
+import { TimelineMax, Power4 } from 'gsap'
+
+import { getOffset } from '../../helpers'
+
 export default {
+  methods: {
+    onEnter (el, done) {
+      const tl = new TimelineMax({ onComplete: done })
+      window.addEventListener('scroll', () => {
+        const bottomOffset = (window.scrollY + window.innerHeight - getOffset(el).top)
+        if (bottomOffset > 100) {
+          tl.play()
+        }
+      })
+      tl.set(el.children, { autoAlpha: 0, top: '40px' })
+      tl.pause()
+      tl.to(el.children[0], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '0.5')
+      tl.to(el.children[1], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=1.5')
+    }
+  }
 }
 </script>
 
@@ -37,8 +61,10 @@ export default {
     h1
       @extend %heading-main
       margin: 0 0 26px
+      position: relative
     p
       @extend %text-main
+      position: relative
       .home-landing &
         +bp(med)
           width: 320px

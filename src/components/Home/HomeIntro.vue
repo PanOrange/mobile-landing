@@ -42,7 +42,6 @@ export default {
   },
   methods: {
     onEnter (el, done) {
-      console.log(el.children)
       const tl = new TimelineMax({
         onComplete: done
       })

@@ -14,20 +14,25 @@
            </div>
           </div>
         </transition>
-        <div class="img-block">
-          <div class="img-part1">
-            <img class="bg" src="../../assets/detailed-screen.png" alt="">
-            <img class="screen" src="../../assets/screen5.jpg" alt="">
+        <transition
+          appear
+          v-on:enter="onEnterImg"
+        >
+          <div class="img-block">
+            <div class="img-part1">
+              <img class="bg" src="../../assets/detailed-screen.png" alt="">
+              <img class="screen" src="../../assets/screen5.jpg" alt="">
+            </div>
+            <div class="img-part2">
+              <img class="bg" src="../../assets/iphone-black.png" alt="">
+              <img class="screen" src="../../assets/screen6.jpg" alt="">
+            </div>
+            <div class="img-part3">
+              <img class="bg" src="../../assets/iPhone-gold.png" alt="">
+              <img class="screen" src="../../assets/screen7.jpg" alt="">
+            </div>
           </div>
-          <div class="img-part2">
-            <img class="bg" src="../../assets/iphone-black.png" alt="">
-            <img class="screen" src="../../assets/screen6.jpg" alt="">
-          </div>
-          <div class="img-part3">
-            <img class="bg" src="../../assets/iPhone-gold.png" alt="">
-            <img class="screen" src="../../assets/screen7.jpg" alt="">
-          </div>
-        </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -56,6 +61,27 @@ export default {
       tl.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut })
       tl.to(el.children[1], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
       tl.to(el.children[2], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=1.2')
+    },
+    onEnterImg (el, done) {
+      const images = el.children
+      const leftImg = images[0]
+      const rightImg = images[2]
+      const tl = new TimelineMax({ onComplete: done })
+      const wp2 = new Waypoint({
+        element: el,
+        handler: () => {
+          tl.play()
+        },
+        offset: '80%'
+      })
+
+      console.log(wp2)
+
+      tl.set(leftImg, { autoAlpha: 0, yPercent: '15', xPercent: '-35' })
+      tl.set(rightImg, { autoAlpha: 0, yPercent: '15', xPercent: '35' })
+      tl.pause()
+      tl.to(leftImg, 1.8, { autoAlpha: 1, yPercent: '15', xPercent: '-15', ease: Power4.easeOut })
+      tl.to(rightImg, 1.8, { autoAlpha: 1, yPercent: '15', xPercent: '15', ease: Power4.easeOut }, '-=1')
     }
   }
 }

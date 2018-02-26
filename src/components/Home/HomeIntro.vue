@@ -121,6 +121,7 @@ export default {
             color: $white
             background-color: $lightblue
         &.btn-android
+          position: relative
           border: 2px solid $lightgreen
           color: $lightgreen
           &:hover

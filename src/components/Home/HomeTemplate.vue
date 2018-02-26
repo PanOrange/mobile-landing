@@ -35,9 +35,8 @@ export default {
         },
         offset: '75%'
       })
-      console.log(wp1)
 
-      tl.set(el.children, { autoAlpha: 0, top: '40px' })
+      tl.set(wp1.element.children, { autoAlpha: 0, top: '40px' })
       tl.pause()
       tl.to(el.children[0], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut })
       tl.to(el.children[1], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=1.5')

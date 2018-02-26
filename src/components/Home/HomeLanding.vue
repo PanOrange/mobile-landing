@@ -54,18 +54,13 @@ export default {
         offset: '80%'
       })
 
-      console.log(wp1)
-
-      tl.set(el.children, { autoAlpha: 0, top: '40px' })
+      tl.set(wp1.element.children, { autoAlpha: 0, top: '40px' })
       tl.pause()
       tl.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut })
       tl.to(el.children[1], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
       tl.to(el.children[2], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=1.2')
     },
     onEnterImg (el, done) {
-      const images = el.children
-      const leftImg = images[0]
-      const rightImg = images[2]
       const tl = new TimelineMax({ onComplete: done })
       const wp2 = new Waypoint({
         element: el,
@@ -74,8 +69,9 @@ export default {
         },
         offset: '80%'
       })
-
-      console.log(wp2)
+      const images = wp2.element.children
+      const leftImg = images[0]
+      const rightImg = images[2]
 
       tl.set(leftImg, { autoAlpha: 0, yPercent: '15', xPercent: '-35' })
       tl.set(rightImg, { autoAlpha: 0, yPercent: '15', xPercent: '35' })

@@ -58,6 +58,7 @@ export default {
   },
   mounted () {
     this.isLoading = false
+    // this.initScroll()
   },
   components: {
     Header,
@@ -80,6 +81,12 @@ export default {
     Contacts,
     Store,
     Footer
+  },
+  methods: {
+    // initScroll () {
+    //   const event = document.createEvent('Event')
+    //   event.initEvent('scroll', true, false)
+    // }
   }
 }
 </script>

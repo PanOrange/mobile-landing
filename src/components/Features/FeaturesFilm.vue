@@ -2,13 +2,17 @@
   <div class="features-film">
     <div class="container">
       <div class="block">
-        <div class="content">
-          <i class="pe pe-7s-film" aria-hidden="true"></i>
-
-          <h2>Watch the film</h2>
-          <h4>A video is worth thousand words</h4>
-          <p>Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-        </div>
+        <transition
+          appear
+          v-on:enter="onEnter"
+        >
+          <div class="content">
+            <i class="pe pe-7s-film" aria-hidden="true"></i>
+            <h2>Watch the film</h2>
+            <h4>A video is worth thousand words</h4>
+            <p>Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+          </div>
+        </transition>
         <div class="film">
           <img src="../../assets/video-img.jpg" alt="video">
         </div>
@@ -18,7 +22,32 @@
 </template>
 
 <script>
+import { TimelineMax, Power4 } from 'gsap'
+import 'waypoints/lib/noframework.waypoints.min'
+
 export default {
+  methods: {
+    onEnter (el, done) {
+      const tl = new TimelineMax({onComplete: done})
+      const wp1 = new Waypoint({
+        element: el,
+        handler: () => {
+          tl.play()
+        },
+        offset: '80%'
+      })
+
+      const items = wp1.element.children
+
+      tl.set(items[0], {autoAlpha: 0, y: '-30px'})
+      tl.set([items[1], items[2], items[3]], {autoAlpha: 0, y: '20px'})
+      tl.pause()
+      tl.to(items[0], 1, {autoAlpha: 1, y: 0, ease: Power4.easeOut})
+      tl.to(items[1], 0.8, {autoAlpha: 1, y: 0, ease: Power4.easeOut}, '-=0.4')
+      tl.to(items[2], 0.8, {autoAlpha: 1, y: 0, ease: Power4.easeOut}, '-=0.5')
+      tl.to(items[3], 1, {autoAlpha: 1, y: 0, ease: Power4.easeOut}, '-=0.5')
+    }
+  }
 }
 </script>
 

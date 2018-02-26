@@ -22,21 +22,24 @@
 <script>
 import { TimelineMax, Power4 } from 'gsap'
 
-import { getOffset } from '../../helpers'
+import 'waypoints/lib/noframework.waypoints.min'
 
 export default {
   methods: {
     onEnter (el, done) {
       const tl = new TimelineMax({ onComplete: done })
-      window.addEventListener('scroll', () => {
-        const bottomOffset = (window.scrollY + window.innerHeight - getOffset(el).top)
-        if (bottomOffset > 100) {
+      const wp1 = new Waypoint({
+        element: el,
+        handler: () => {
           tl.play()
-        }
+        },
+        offset: '75%'
       })
+      console.log(wp1)
+
       tl.set(el.children, { autoAlpha: 0, top: '40px' })
       tl.pause()
-      tl.to(el.children[0], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '0.5')
+      tl.to(el.children[0], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut })
       tl.to(el.children[1], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=1.5')
     }
   }

@@ -2,11 +2,18 @@
   <div class="home-learn">
     <div class="container-fixed">
       <div class="block">
-        <div class="column-center">
-          <h1>Perfect landing page for any App</h1>
-          <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
-          <a href="#" class="btn">Learn more<i class="fa fa-chevron-circle-right"></i></a>
-        </div>
+        <transition
+          appear
+          v-on:enter="onEnter"
+        >
+          <div class="column-center">
+            <h1>Perfect landing page for any App</h1>
+            <p>You can create custom iOS and macOS apps for your business using Swift, our open source programming language. Apps that have the power to transform workflows, improve client relationships, and boost your productivity.</p>
+           <div class="btn-holder">
+             <a href="#" class="btn">Learn more<i class="fa fa-chevron-circle-right"></i></a>
+           </div>
+          </div>
+        </transition>
         <div class="img-block">
           <div class="img-part1">
             <img class="bg" src="../../assets/detailed-screen.png" alt="">
@@ -27,7 +34,30 @@
 </template>
 
 <script>
+import { TimelineMax, Power4 } from 'gsap'
+import 'waypoints/lib/noframework.waypoints.min'
+
 export default {
+  methods: {
+    onEnter (el, done) {
+      const tl = new TimelineMax({ onComplete: done })
+      const wp1 = new Waypoint({
+        element: el,
+        handler: () => {
+          tl.play()
+        },
+        offset: '80%'
+      })
+
+      console.log(wp1)
+
+      tl.set(el.children, { autoAlpha: 0, top: '40px' })
+      tl.pause()
+      tl.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut })
+      tl.to(el.children[1], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      tl.to(el.children[2], 1.8, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=1.2')
+    }
+  }
 }
 </script>
 
@@ -45,14 +75,17 @@ export default {
     background-color: #383e40
 
   .block
+    position: relative
     display: block
     padding: 100px 0 0
     text-align: center
     h1
       @extend %heading-main
       margin: 0 0 26px
+      position: relative
     p
       @extend %text-main
+      position: relative
       .home-landing &
         +bp(med)
           width: 320px
@@ -61,6 +94,8 @@ export default {
       max-width: 70%
       margin: 0 auto
       padding: 0 30px
+    .btn-holder
+      position: relative
     .btn
       @extend %btn
       width: 100%

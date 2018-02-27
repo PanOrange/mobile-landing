@@ -32,7 +32,9 @@
 </template>
 
 <script>
-import { TimelineMax, Power4 } from 'gsap'
+import { TimelineMax, TweenMax, Power4 } from 'gsap'
+import ScrollMagic from 'scrollmagic'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 
 import SliderPhone from '../SliderPhone'
 import SliderPartners from '../SliderPartners'
@@ -42,15 +44,30 @@ export default {
   },
   methods: {
     onEnter (el, done) {
+      const scene = new ScrollMagic.Scene({tweenChanges: true})
+
       const tl = new TimelineMax({
         onComplete: done
       })
 
-      tl.set(el.children, { autoAlpha: 0, top: '40px' })
-      tl.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '0.5')
-      tl.to(el.children[1], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
-      tl.to(el.children[2], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
-      tl.to(el.children[3], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      const tween1 = TweenMax.set(el.children, { autoAlpha: 0, top: '40px' })
+      const tween2 = TweenMax.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '0.5')
+      const tween3 = TweenMax.to(el.children[1], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      const tween4 = TweenMax.to(el.children[2], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      const tween5 = TweenMax.to(el.children[3], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+
+      // tl.set(el.children, { autoAlpha: 0, top: '40px' })
+      // tl.to(el.children[0], 1, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '0.5')
+      // tl.to(el.children[1], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      // tl.to(el.children[2], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+      // tl.to(el.children[3], 1.2, { autoAlpha: 1, top: 0, ease: Power4.easeOut }, '-=0.8')
+
+      tl.add(tween1)
+      tl.add(tween2)
+      tl.add(tween3)
+      tl.add(tween4)
+      tl.add(tween5)
+      scene.addTween(tl)
     }
   }
 }
